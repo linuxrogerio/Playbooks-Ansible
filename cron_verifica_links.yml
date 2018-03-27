@@ -4,15 +4,15 @@
 
   tasks:
   - file:
-      path: /opt/Gepro_Scripts/
+      path: /opt/scripts/
       state: directory
       owner: root
       group: root
       mode: 0655
 
   - copy:
-      src: /home/uid-rreis/ansible/scripts/verifica_links.sh
-      dest: /opt/Gepro_Scripts/verifica_links.sh
+      src: /home/rreis/ansible/scripts/verifica_links.sh
+      dest: /opt/scripts/verifica_links.sh
       owner: root
       group: root
       mode: 0755
@@ -23,9 +23,9 @@
       state: started
 
   - cron:
-      name: "Verifica Links Simbolicos dos servidores COMPE"
+      name: "Verifica Links Simbolicos dos servidores"
       minute: "*/30"
-      job: "/opt/Gepro_Scripts/verifica_links.sh"
+      job: "/opt/scripts/verifica_links.sh"
       user: root
-      cron_file: verifica_links_compe
+      cron_file: verifica_links
 ...
