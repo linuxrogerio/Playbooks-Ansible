@@ -4,12 +4,11 @@
   remote_user: rreis        
 
   tasks:
-  - name: Alterando Dono, Grupo e permissões do diretório auditoria     
+  - name: Alterando Dono, Grupo e permissões do diretório
     file:
-      path: /opt/configApp/mensageria/auditoria/contingencia/
-      path: /opt/configApp/mensageria/auditoria/rejeitadas/ 
+      path: /opt/dir/subdir/
       state: directory
-      owner: svc-was
-      group: grpwas
+      owner: <dono do dir>
+      group: <grupo dono do dir>
       mode: 0775
 
