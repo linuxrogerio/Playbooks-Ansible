@@ -1,0 +1,20 @@
+---
+- hosts: "jbsp"
+  remote_user: rreis
+
+  tasks:  
+  - name: Parando o serviço accounting 
+    shell: /usr/sbin/accton off 
+    become: yes
+
+  - name: Desabilitar o serviço
+    service:
+      name: acct
+      enabled: no 
+
+
+  - name: Excluir dirétório      
+    file:
+      path: /var/account/
+      state: absent
+

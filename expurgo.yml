@@ -1,0 +1,29 @@
+---
+- name: Transfere e executa o script.
+  hosts: "iks"
+  remote_user: rreis        
+  sudo: yes
+
+  tasks:
+
+  - name: Criando o diretório /opt/Gepro_Scripts/ 
+    file:
+      path: /opt/Gepro_Scripts/
+      state: directory
+      owner: root
+      group: root
+      mode: 0655
+ 
+  - name: Copia o scipt expurgo.sh para o diretório criado.
+    copy:   
+      src: /home/uid-rreis/ansible/scripts/expurgo.sh 
+      dest: /opt/Gepro_Scripts/expurgo.sh
+      owner: root
+      group: root
+      mode: 0755
+      backup: yes
+
+  - name: Executa o script nas máquinas.
+    shell: /opt/Gepro_Scripts/expurgo.sh  
+...
+

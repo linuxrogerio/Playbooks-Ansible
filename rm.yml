@@ -1,0 +1,17 @@
+---
+- hosts: db2p141 
+  remote_user: rreis
+      
+  tasks:
+    - name: Removendo arquivos.
+      shell: rm -rfv /var/opt/BESRelay/wwwrootbes/bfmirror/downloads/sha1/* /var/cache/zypp/packages/* /var/cache/zypp/raw/* /var/cache/zypp/solv/* /var/lib/vmware-caf/pme/data/output/responses/* /var/ibm/tivoli/common/COD/logs/agent/trace/* rm -rf /var/log/vmware-vmsvc.*.log /root/Backup/* /var/spool/mail/*
+      shell: find /var/log/ -maxdepth 1 -iname *.bz2 -mtime +2 -exec rm -rfv {} \;
+      shell: rm -rfv /var/log/sa/201802/*.bz2   
+      become: yes    
+      become_method: sudo  
+
+    - name: Zerando arquivos de log    
+      shell: echo > /var/log/cron 
+      shell: echo > /var/log/mail 
+      become: yes    
+      become_method: sudo  

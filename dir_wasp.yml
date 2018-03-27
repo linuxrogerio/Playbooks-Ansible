@@ -1,0 +1,15 @@
+---
+- hosts: "wasp"
+  serial: 5 
+  remote_user: rreis        
+
+  tasks:
+  - name: Alterando Dono, Grupo e permissões do diretório auditoria     
+    file:
+      path: /opt/configApp/mensageria/auditoria/contingencia/
+      path: /opt/configApp/mensageria/auditoria/rejeitadas/ 
+      state: directory
+      owner: svc-was
+      group: grpwas
+      mode: 0775
+

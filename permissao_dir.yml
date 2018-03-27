@@ -1,0 +1,12 @@
+---
+- hosts: "jbsp"
+  serial: 10 
+  remote_user: rreis        
+
+  tasks:
+  - name: Alterando Dono, Grupo do diretório /home/svc-relatorio      
+    shell: chown -R svc-relatorio. /home/svc-relatorio/
+
+  - name: Alterando a permissão do diretório /home/svc-relatorio      
+    shell: chmod 700 /home/svc-relatorio/ 
+

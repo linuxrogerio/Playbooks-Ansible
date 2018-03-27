@@ -1,0 +1,9 @@
+---
+- hosts: jbsp
+  remote_user: rreis
+      
+  tasks:
+    - name: lsitas o uso de disco dos servidores.
+      shell: du -shc --exclude=/proc --exclude=/mnt --exclude=/media --exclude=/sys --exclude=/var/lib/ntp/proc/ /* 
+      become: yes    
+      become_method: sudo  
