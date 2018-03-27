@@ -1,0 +1,31 @@
+---
+- hosts: "compe"
+  remote_user: rreis
+
+  tasks:
+  - file:
+      path: /opt/Gepro_Scripts/
+      state: directory
+      owner: root
+      group: root
+      mode: 0655
+
+  - copy:
+      src: /home/uid-rreis/ansible/scripts/verifica_links.sh
+      dest: /opt/Gepro_Scripts/verifica_links.sh
+      owner: root
+      group: root
+      mode: 0755
+      backup: yes
+
+  - service:
+      name: cron
+      state: started
+
+  - cron:
+      name: "Verifica Links Simbolicos dos servidores COMPE"
+      minute: "*/30"
+      job: "/opt/Gepro_Scripts/verifica_links.sh"
+      user: root
+      cron_file: verifica_links_compe
+...
