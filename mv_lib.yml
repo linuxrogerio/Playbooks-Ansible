@@ -6,10 +6,10 @@
   tasks:
   - name: Alterando Dono, Grupo e permissões do diretório auditoria     
     file:
-      path: /opt/configApp/mensageria/auditoria/contingencia/
-      path: /opt/configApp/mensageria/auditoria/rejeitadas/ 
+      path: /dir/subdir/subdir/subdir/subdir/
+      path: /dir/subdir/subdir/subdir/ 
       state: directory
-      owner: svc-was
-      group: grpwas
+      owner: dono
+      group: grupo
       mode: 0775
 
