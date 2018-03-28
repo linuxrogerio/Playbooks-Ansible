@@ -6,9 +6,9 @@
 
   tasks:
 
-  - name: Criando o diretório /opt/Gepro_Scripts/ 
+  - name: Criando o diretório /opt/scripts/ 
     file:
-      path: /opt/Gepro_Scripts/
+      path: /opt/scripts/
       state: directory
       owner: root
       group: root
@@ -17,13 +17,13 @@
   - name: Copia o scipt expurgo.sh para o diretório criado.
     copy:   
       src: /home/uid-rreis/ansible/scripts/expurgo.sh 
-      dest: /opt/Gepro_Scripts/expurgo.sh
+      dest: /opt/scripts/expurgo.sh
       owner: root
       group: root
       mode: 0755
       backup: yes
 
   - name: Executa o script nas máquinas.
-    shell: /opt/Gepro_Scripts/expurgo.sh  
+    shell: /opt/scripts/expurgo.sh  
 ...
 
