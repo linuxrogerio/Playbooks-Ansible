@@ -7,3 +7,4 @@
       shell: shutdown -r now 
 #      become: yes    
 #      become_method: sudo  
+...
