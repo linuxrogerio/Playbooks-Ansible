@@ -1,5 +1,5 @@
 ---
-- hosts: db2p141 
+- hosts: <nome-do-bloco-no-inventário> 
   remote_user: rreis
       
   tasks:
